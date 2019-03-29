@@ -8,9 +8,71 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-	<link rel="stylesheet" href= "{% static 'css/home.css'%}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
 	
-    <title>SMART EVENT MANAGEMENT PORTAL</title>
+    <title>SEMP- Dashboard</title>
   </head>
+  
+  <body id= "pagetop">
+<!-- The top navbar -->
+	<nav class="navbar navbar-expand-lg d-flex fixed-top" id="topnavbar">
+		<a class="navbar-brand" href="#" style= "color: #ffffff" ><b>SMART EVENT MANAGEMENT PORTAL</b></a>
+		
+			<div class= "container-fluid justify-content-end">
+			
+					<a class="nav-link" href="#"> <img src="{% static 'home.png'%}" width="35" height="30" alt=""> </a>
+				
+				<div class="dropdown">
+				  <a class="btn dropdown-toggle ml-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+					MENU
+				  </a>
+				  
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">Profile</a>
+					<a class="dropdown-item" href="#">Archives</a>
+					<a class="dropdown-item" href="#">Help</a>
+					<a class="dropdown-item" href="#">Log Out</a>
+				  </div>
+				</div>
+			</div>
+	
+	</nav>
+
+<!-- The Floating action button part -->	
+	<div class="fixed-action-btn">
+	  <a class="btn-floating btn-large">
+		<i class="fa fa-plus" aria-hidden="true"></i>
+	  </a>
+	</div>
+	
+<!-- The side nav bar -->
+	<nav class="navbar d-flex fixed-bottom" id="sidenavbar">
+	
+	<div class= "my-auto">
+		
+		 <ul class="nav nav-pills flex-column" id="navigation">
+		 
+			<li class="nav-item">
+				<a class="nav-link active" href="#about">Resource Provider</a>
+			</li> 
+			<li class="nav-item">
+				<a class="nav-link" href="#experience">Organizers</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#education">Request User</a>
+			</li>
+		</ul>
+	</div>
+	</nav>
+	
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+  
+  </html>

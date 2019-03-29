@@ -1,0 +1,42 @@
+html, body{
+  height: 100%;
+}
+
+#sidenavbar{
+		
+	background-color: #0086ad;
+	position:fixed;
+	font-size: 50rem;
+	line-height: 1rem;
+	font-weight: bold;
+	text-align:center;
+	float:left;
+	flex-direction: column;
+	width: 15vw;
+	height: 92.1vh;
+		
+	}
+#topnavbar{
+	
+	background-color: #0086ad;
+	
+}
+	
+#dropdownMenuButton{
+	
+	
+	
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+		
+		color: black;
+		background-color: white;
+		
+	}
+ .nav-pills a:hover{
+		 
+		 color: black;
+		 background-color: white;
+		 
+	 }
+	
