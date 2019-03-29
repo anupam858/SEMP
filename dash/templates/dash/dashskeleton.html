@@ -54,25 +54,54 @@
 	
 	<div class= "my-auto">
 		
-		 <ul class="nav nav-pills flex-column" id="navigation">
+		 <ul class="nav nav-pills flex-column" role="tablist" id="navigation">
 		 
 			<li class="nav-item">
-				<a class="nav-link active" href="#about">Resource Provider</a>
+				<a class="nav-link active" href="#about" role="tab" data-toggle="tab">Resource Provider</a>
 			</li> 
 			<li class="nav-item">
-				<a class="nav-link" href="#experience">Organizers</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#education">Request User</a>
+				<a class="nav-link" href="#experience" role = "tab" data-toggle="tab" >Organizers</a>
+			</li>			<li class="nav-item">
+				<a class="nav-link" role = "tab" data-toggle="tab" href="#requestform">Request User</a>
 			</li>
 		</ul>
 	</div>
 	</nav>
 	
+	<div class = "tab-content" id = "mytabcontent">
+		<div class="tab-pane fade" id="requestform" role="tabpanel">
+			<h3 style="text-align:center" id="reqinfo">Request New User</h3>
+			<form class="needs-validation" name="myform" onsubmit="return validateform()">
+		  <div class="form-group">
+			<label for="name" class="textcolor">NAME:</label>
+			<input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+		  </div>
+		  <div class="form-group">
+			<label for="email" class="textcolor">EMAIL:</label>
+			<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+		  </div>
+		  <div class="form-group">
+			<label for="phone" class="textcolor">PHONE NUMBER:</label>
+			  <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" required> 
+			
+		  </div>
+		  <div class="form-group">
+			<label for="des" class="textcolor">DESIGNATION</label>
+			<input type="text" class="form-control" id="des" placeholder="Enter Designation" name="des" required>
+		  </div>
+		  <div class="form-group">
+			<label for="id" class="textcolor">ID</label>
+			<input type="text" class="form-control" id="id" placeholder="Enter Valid ID" name="id" required>
+		  </div>
+		  <button type="submit" class="btn btn-primary" value="Submit">Submit Request</button>
+		</form>
+		</div>
+	</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="{%static 'js/dashboard.js'%}"></script>
   </body>
   
   </html>
