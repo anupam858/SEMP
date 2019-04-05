@@ -1,107 +1,256 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
 
-{% load static %}
+/* Full-width input fields */
+ 
+.inp3{
+  width: 100%;
+  padding: 0.8rem;
+  margin: .5rem 0 1.5rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.7rem;
+  background: #f1f1f1;
+  box-sizing: border-box;
+}
 
-<html lang="en">
-  <head>
-   
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+.ui-datepicker {
+   background: #333;
+   border: 1px solid #555;
+   color: #f1f1f1;
+}
 
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
-	
-    <title>SEMP- Dashboard</title>
-  </head>
+.gap{
+	width: 40%;
+	display: inline-block;
+}	
+.point{
+	position: relative;
+	left: 5.5rem;
+}
+
+/* Add a background color when the inputs get focus */
+.inp3:focus{
+  background-color: #ddd;
+  border-color: #6495ed;
+}
+
+/* Set a style for all buttons */
+.but3 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: .8rem 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 1.0rem;
+}
+
+.but3:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+#cancelbtn3 {
+  padding: 0.6rem;
+  background-color: #f44336;
+  margin-left: 0.6rem;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+#cancelbtn3, #create_btn {
+  float: right;
+}
+
+/* Add padding to container elements */
+.container3 {
+  padding: 1.6rem;
+}
+
+#distance{
+	position: absolute;
+	right: 3.9rem;
+}
+#eve-date{
+	border-style: groove;
+	border-width: 0.05rem;
+	border-radius: 1.0rem;
+	padding: 0.8rem;
+}
+
+#message{
+	 position: relative;
+	 left: 1.7rem;
+	 padding: 0.8rem;
+	 border-radius: 0.7rem;
+	 width: 90%;
+	 border-color: #6495ed;
+	}
+
+/* The Modal (background) */
+.modal3 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 0.8rem;
+}
+
+/* Modal Content/Box */
+.modal-content3 {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 0.1rem solid #888;
+  border-radius: 1.0rem;
+  width: 50%; /* Could be more or less, depending on screen size */
+  position: relative;
+  box-sizing: border-box;
   
-  <body id= "pagetop">
-<!-- The top navbar -->
-	<nav class="navbar navbar-expand-lg d-flex fixed-top" id="topnavbar">
-		<a class="navbar-brand" href="#" style= "color: #ffffff" ><b>SMART EVENT MANAGEMENT PORTAL</b></a>
-		
-			<div class= "container-fluid justify-content-end">
-			
-					<a class="nav-link" href="#"> <img src="{% static 'home.png'%}" width="35" height="30" alt=""> </a>
-				
-				<div class="dropdown">
-				  <a class="btn dropdown-toggle ml-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-					MENU
-				  </a>
-				  
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">Profile</a>
-					<a class="dropdown-item" href="#">Archives</a>
-					<a class="dropdown-item" href="#">Help</a>
-					<a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-				  </div>
-				</div>
-			</div>
-	
-	</nav>
+}
 
-<!-- The Floating action button part -->	
-	<div class="fixed-action-btn">
-	  <a class="btn-floating btn-large">
-		<i class="fa fa-plus" aria-hidden="true"></i>
-	  </a>
-	</div>
+.container3 h1, p{
+	text-align: center;
+	position: relative;
+	top: 0.1rem;
+}
+ 
+/* The Close Button (x) */
+.close3 {
+  position: absolute;
+  right: 1rem;
+  top: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.close3:hover,
+.close3:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+.enable:focus{
+	opacity:1;
+	}
+
+hr{
+  margin-bottom: 2.0rem;
+  margin-top:2.0rem;
+  border: 0.1rem solid #f1f1f1;
+}
+/* Clear floats */
+.clearfix3::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+</style>
+<body>
+
+
+<button class = "but3" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Sign Up</button>
+
+<div id="id03" class="modal3">
+  
+  <form class="modal-content3" action="/action_page.php">
+	<span onclick="document.getElementById('id03').style.display='none'" class="close3" title="Close Modal">&times;</span>
 	
-<!-- The side nav bar -->
-	<nav class="navbar d-flex fixed-bottom" id="sidenavbar">
-	
-	<div class= "my-auto">
-		
-		 <ul class="nav nav-pills flex-column" role="tablist" id="navigation">
-		 
-			<li class="nav-item">
-				<a class="nav-link active" href="#about" role="tab" data-toggle="tab">Resource Provider</a>
-			</li> 
-			<li class="nav-item">
-				<a class="nav-link" href="#experience" role = "tab" data-toggle="tab" >Organizers</a>
-			</li>			<li class="nav-item">
-				<a class="nav-link" role = "tab" data-toggle="tab" href="#requestform">Request User</a>
-			</li>
-		</ul>
-	</div>
-	</nav>
-	
-	<div class = "tab-content" id = "mytabcontent">
-		<div class="tab-pane fade" id="requestform" role="tabpanel">
-			<h3 style="text-align:center" id="reqinfo">Request New User</h3>
-			<form class="needs-validation" name="myform" onsubmit="return validateform()">
-		  <div class="form-group">
-			<label for="name" class="textcolor">NAME:</label>
-			<input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
-		  </div>
-		  <div class="form-group">
-			<label for="email" class="textcolor">EMAIL:</label>
-			<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
-		  </div>
-		  <div class="form-group">
-			<label for="phone" class="textcolor">PHONE NUMBER:</label>
-			  <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" required> 
+    <div class="container3">
+      <h1> Create an Event </h1>
+	  
+    <hr>
+      <label for="title"><b>Title</b></label> <br/>
+      <input class= "inp3" type="text" placeholder="Title goes here" name="title"  required> 
+      <br/>
+      <label for="evedate"><b>Event Date</b> <span id= "distance">  <b>Time</b> </label><br/>
+         <input class = "inp3 pickdate gap" type = "text" placeholder = "DD/MM/YYYY" name= "evedate" required> 
+			<input class = "inp3 gap point" type = "time"  value="13:30" name= "time1" required >
+		<br/>
+			<label for="venue"><b>Venue</b></label><br/>
+            <select class = "inp3" name="places">
+				<option  value="outside">External Places</option>
+			</select>
+		<label>
+        <input id= "availability" type="checkbox" name="altdates" > In case of no availability, choose alternate dates
+      </label>
+			<br/>
+			<br/>
 			
-		  </div>
-		  <div class="form-group">
-			<label for="des" class="textcolor">DESIGNATION</label>
-			<input type="text" class="form-control" id="des" placeholder="Enter Designation" name="des" required>
-		  </div>
-		  <div class="form-group">
-			<label for="id" class="textcolor">ID</label>
-			<input type="text" class="form-control" id="id" placeholder="Enter Valid ID" name="id" required>
-		  </div>
-		  <button type="submit" class="btn btn-primary" value="Submit">Submit Request</button>
-		</form>
+		<div id = "eve-date">
+	
+         <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "DD/MM/YYYY" name= "evedate2" >  
+				<input class = "inp3 enable gap point" type = "time"  value="14:30" name= "time2">
+				<br/>
+           
+            <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "DD/MM/YYYY" name= "evedate3"> 
+					
+				<input class = "inp3 enable gap point" type = "time"  value="15:30" name= "time3"> 
+			<br/>
 		</div>
-	</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="{%static 'js/dashboard.js'%}"></script>
-  </body>
-  
-  </html>
+		<br/>
+			<label for="organizer-name"><b>Organaizer</b></label><br/>
+            <select class = "inp3" name="organizers" multiple size = "1">
+				<option class = "sel-org" value="selected-org">John</option>
+					<option class = "sel-org" value="selected-org">Johnny</option>
+						<option class = "sel-org" value="selected-org">Joe</option>
+						
+			<textarea id= "message"  name="extra-notes" rows="10" cols="50" placeholder = "Extra Notes"></textarea> 
+			
+	  <div class="clearfix3">
+        <button type="button" onclick="document.getElementById('id03').style.display='none'" class= "but3" id="cancelbtn3">Cancel</button>
+        <button type="submit" id="create_btn" class= "but3">Create</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id03');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	  
+	  
+	  <script>
+         $(function() {
+            $( ".pickdate" ).datepicker({minDate: 0});
+         });
+		 
+		 $(document).ready(function(){
+		 $(".enable").prop("disabled", true);
+        $("#availability").click(function(){
+            if($(this).prop("checked") == true){
+                $(".enable").prop("disabled", false);
+            }
+            else if($(this).prop("checked") == false){
+                $(".enable").prop("disabled", true);
+            }
+        });
+    });
+
+      </script>
+
+
+
+</body>
+</html>
