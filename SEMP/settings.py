@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 DBNAME = 'base-user'
+
+LOGIN_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -77,11 +79,13 @@ WSGI_APPLICATION = 'SEMP.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'djongo',
-         'NAME': DBNAME,
-     }
- }
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': DBNAME,
+        'ENFORCE_SCHEMA': False
+
+    }
+}
 
 
 # Password validation
