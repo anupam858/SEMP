@@ -2,7 +2,7 @@ from djongo import models
 from datetime import datetime
 # Create your models here.
 
-'''class OrganiList(models.Model):
+class OrganiList(models.Model):
 
       user_id = models.CharField(max_length= 50)
 
@@ -47,8 +47,9 @@ class Events(models.Model):
       Venue = models.CharField(max_length= 20)
       E_ptime_s = models.TimeField(auto_now= False)
       E_ptime_e = models.TimeField(auto_now= False)
-      slot1= models.ArrayModelField(model_container = SlotF,null= True)
-      slot2 = models.ArrayModelField(model_container = SlotF,null= True)
+      optional = models.BooleanField()
+      slot1= models.ArrayModelField(model_container = SlotF)
+      slot2 = models.ArrayModelField(model_container = SlotF)
       Venue_s = models.CharField(max_length= 20)
       rp = models.CharField(max_length= 50, blank= False)
       organi_names = models.ArrayModelField(model_container = OrganiList,null= True)
@@ -67,7 +68,7 @@ class Venue(models.Model):
       room_no = models.CharField(max_length= 5,unique= True)
       floor = models.CharField(max_length= 10)
       capacity = models.IntegerField()
-      occupancy = models.ArrayModelField(model_container = Voccupy,)
+      occupancy = models.ArrayModelField(model_container = Voccupy)
 
 
 
@@ -88,6 +89,22 @@ class Tasks(models.Model):
       def __str__(self):
 
             return self.e_id
-'''  
+ 
+
+class UserRequest(models.Model):
+
+      org_id = models.CharField(max_length=50, blank=True)
+      name = models.CharField(max_length= 30)
+      email = models.EmailField(max_length=50, blank=True, unique= True)
+      phone = models.CharField(max_length=12, blank=True)
+      designation = models.CharField(max_length= 30)
+      gen_id = models.CharField(max_length= 15)
+
+      def __str__(self):
+
+            return self.email
+
+      
+      
       
       

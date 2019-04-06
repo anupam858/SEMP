@@ -26,7 +26,7 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-	<link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+	<link rel="stylesheet" href="{% static 'css/dashboarduser.css'%}">
 
 	
 
@@ -39,7 +39,7 @@
   <body id= "pagetop">
 
 <!-- The top navbar -->
-
+	
 	<nav class="navbar navbar-expand-lg d-flex fixed-top" id="topnavbar">
 
 		<a class="navbar-brand" href="#" style= "color: #ffffff" ><b>SMART EVENT MANAGEMENT PORTAL</b></a>
@@ -103,36 +103,39 @@
 <!-- The side nav bar -->
 
 	<nav class="navbar d-flex fixed-bottom" id="sidenavbar">
-
 	
+		<h2> hello, </h2>
+		{% for sd in Selfu%}
+		<h4>{{sd.name}} </h2>
+		{% endfor %}
 
-	<div class= "my-auto">
+		<div class= "my-auto">
 
-		
+			
 
-		 <ul class="nav nav-pills flex-column" role="tablist" id="navigation">
+			 <ul class="nav nav-pills flex-column" role="tablist" id="navigation">
 
-		 
+			 
 
-			<li class="nav-item">
+				<li class="nav-item">
 
-				<a class="nav-link active" href="#about" role="tab" data-toggle="tab">Resource Provider</a>
+					<a class="nav-link active" href="#about" role="tab" data-toggle="tab">Resource Provider</a>
 
-			</li> 
+				</li> 
 
-			<li class="nav-item">
+				<li class="nav-item">
 
-				<a class="nav-link" href="#experience" role = "tab" data-toggle="tab" >Organizers</a>
+					<a class="nav-link" href="#experience" role = "tab" data-toggle="tab" >Organizers</a>
 
-			</li>			<li class="nav-item">
+				</li>			<li class="nav-item">
 
-				<a class="nav-link" role = "tab" data-toggle="tab" href="#requestform">Request User</a>
+					<a class="nav-link" role = "tab" data-toggle="tab" href="#requestform">Request User</a>
 
-			</li>
+				</li>
 
-		</ul>
+			</ul>
 
-	</div>
+		</div>
 
 	</nav>
 
@@ -144,8 +147,8 @@
 
 			<h3 style="text-align:center" id="reqinfo">Request New User</h3>
 
-			<form class="needs-validation" name="myform" onsubmit="return validateform()">
-
+			<form class="needs-validation" action="{% url 'requestuser' %}" name="myform" onsubmit="return validateform()" method= "POST">
+			{% csrf_token %}
 		  <div class="form-group">
 
 			<label for="name" class="textcolor">NAME:</label>

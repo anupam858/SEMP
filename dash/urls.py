@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('dashboard', views.dash, name='dashboard'),
-    path('admindashboard', views.dashadmin, name='dashboardadmin')
+    path('admindashboard', views.dashadmin, name='dashboardadmin'),
+    path('reqtoadmin', views.requser, name='requestuser')
 ]

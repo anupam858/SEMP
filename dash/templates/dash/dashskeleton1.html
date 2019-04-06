@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+ 
+.inp3{
+  width: 100%;
+  padding: 0.8rem;
+  margin: .5rem 0 1.5rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.7rem;
+  background: #f1f1f1;
+  box-sizing: border-box;
+}
+
+.ui-datepicker {
+   background: #333;
+   border: 1px solid #555;
+   color: #f1f1f1;
+}
+
+.gap{
+	width: 40%;
+	display: inline-block;
+}	
+.point{
+	position: relative;
+	left: 5.5rem;
+}
+
+/* Add a background color when the inputs get focus */
+.inp3:focus{
+  background-color: #ddd;
+  border-color: #6495ed;
+}
+
+/* Set a style for all buttons */
+.but3 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: .8rem 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 1.0rem;
+}
+
+.but3:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+#cancelbtn3 {
+  padding: 0.6rem;
+  background-color: #f44336;
+  margin-left: 0.6rem;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+#cancelbtn3, #create_btn {
+  float: right;
+}
+
+/* Add padding to container elements */
+.container3 {
+  padding: 1.6rem;
+}
+
+#distance{
+	position: absolute;
+	right: 3.9rem;
+}
+#eve-date{
+	border-style: groove;
+	border-width: 0.05rem;
+	border-radius: 1.0rem;
+	padding: 0.8rem;
+}
+
+#message{
+	 position: relative;
+	 left: 1.7rem;
+	 padding: 0.8rem;
+	 border-radius: 0.7rem;
+	 width: 90%;
+	 border-color: #6495ed;
+	}
+
+/* The Modal (background) */
+.modal3 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 0.8rem;
+}
+
+/* Modal Content/Box */
+.modal-content3 {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 0.1rem solid #888;
+  border-radius: 1.0rem;
+  width: 50%; /* Could be more or less, depending on screen size */
+  position: relative;
+  box-sizing: border-box;
+  
+}
+
+.container3 h1, p{
+	text-align: center;
+	position: relative;
+	top: 0.1rem;
+}
+ 
+/* The Close Button (x) */
+.close3 {
+  position: absolute;
+  right: 1rem;
+  top: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.close3:hover,
+.close3:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+.enable:focus{
+	opacity:1;
+	}
+
+hr{
+  margin-bottom: 2.0rem;
+  margin-top:2.0rem;
+  border: 0.1rem solid #f1f1f1;
+}
+/* Clear floats */
+.clearfix3::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+</style>
+<body>
+
+
+<button class = "but3" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Sign Up</button>
+
+<div id="id03" class="modal3">
+  
+  <form class="modal-content3" action="/action_page.php">
+	<span onclick="document.getElementById('id03').style.display='none'" class="close3" title="Close Modal">&times;</span>
+	
+    <div class="container3">
+      <h1> Create an Event </h1>
+	  
+    <hr>
+      <label for="title"><b>Title</b></label> <br/>
+      <input class= "inp3" type="text" placeholder="Title goes here" name="title"  required> 
+      <br/>
+      <label for="evedate"><b>Event Date</b> <span id= "distance">  <b>Time</b> </label><br/>
+         <input class = "inp3 pickdate gap" type = "text" placeholder = "DD/MM/YYYY" name= "evedate" required> 
+			<input class = "inp3 gap point" type = "time"  value="13:30" name= "time1" required >
+		<br/>
+			<label for="venue"><b>Venue</b></label><br/>
+            <select class = "inp3" name="places">
+				<option  value="outside">External Places</option>
+			</select>
+		<label>
+        <input id= "availability" type="checkbox" name="altdates" > In case of no availability, choose alternate dates
+      </label>
+			<br/>
+			<br/>
+			
+		<div id = "eve-date">
+	
+         <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "DD/MM/YYYY" name= "evedate2" >  
+				<input class = "inp3 enable gap point" type = "time"  value="14:30" name= "time2">
+				<br/>
+           
+            <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "DD/MM/YYYY" name= "evedate3"> 
+					
+				<input class = "inp3 enable gap point" type = "time"  value="15:30" name= "time3"> 
+			<br/>
+		</div>
+		<br/>
+			<label for="organizer-name"><b>Organaizer</b></label><br/>
+            <select class = "inp3" name="organizers" multiple size = "1">
+				<option class = "sel-org" value="selected-org">John</option>
+					<option class = "sel-org" value="selected-org">Johnny</option>
+						<option class = "sel-org" value="selected-org">Joe</option>
+						
+			<textarea id= "message"  name="extra-notes" rows="10" cols="50" placeholder = "Extra Notes"></textarea> 
+			
+	  <div class="clearfix3">
+        <button type="button" onclick="document.getElementById('id03').style.display='none'" class= "but3" id="cancelbtn3">Cancel</button>
+        <button type="submit" id="create_btn" class= "but3">Create</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id03');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	  
+	  
+	  <script>
+         $(function() {
+            $( ".pickdate" ).datepicker({minDate: 0});
+         });
+		 
+		 $(document).ready(function(){
+		 $(".enable").prop("disabled", true);
+        $("#availability").click(function(){
+            if($(this).prop("checked") == true){
+                $(".enable").prop("disabled", false);
+            }
+            else if($(this).prop("checked") == false){
+                $(".enable").prop("disabled", true);
+            }
+        });
+    });
+
+      </script>
+
+
+
+</body>
+</html>

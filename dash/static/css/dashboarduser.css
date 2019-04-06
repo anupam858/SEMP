@@ -1,67 +1,123 @@
 html, body{
+
   height: 100%;
-  margin-top: 4vh;
-  margin-left: 7.5vw;
+
 }
 
+
+
 #sidenavbar{
+
 		
+
 	background-color: #0086ad;
+
+	position:fixed;
+
 	font-size: 50rem;
+
 	line-height: 1rem;
+
 	font-weight: bold;
+
 	text-align:center;
+
 	float:left;
+
 	flex-direction: column;
+
 	width: 15vw;
+
 	height: 92.1vh;
-	position: relative;	
+
+		
+
 	}
-#sidenavbar{
-	position: fixed;
-}
+
 #topnavbar{
+
 	
+
 	background-color: #0086ad;
+
 	
+
 }
+
 	
+
 #dropdownMenuButton{
+
 	
+
 	
+
 	
+
 }
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+
 		
+
 		color: black;
+
 		background-color: white;
+
 		
+
 	}
+
  .nav-pills a:hover{
+
 		 
+
 		 color: black;
+
 		 background-color: white;
+
 		 
+
 	 }
+
 .needs-validation{
+
 			width:30rem;
+
 			margin:auto;
+
 			
+
 			position:relative;
+
 			top:3rem;
+
 			padding:0.5rem 1.5rem 0.3rem 1.5rem;
+
 			}
+
 .form-control{
+
 			width:25rem;
+
 		}
+
 #reqinfo{
+
 	position:relative;
+
 	top:3rem;
+
 	
+
 }
 
 .textcolor{
+
 	color:black;
+
 	font-size:1rem;
+
 	font-weight:normal;
+
 }
