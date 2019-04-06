@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
-from .models import UserCollection
+from .models import UserCollection, UserAssociation
 from django.contrib.auth.models import Group, User
 from dash import views
 from django.contrib.auth import login,logout, authenticate
@@ -26,17 +26,18 @@ def signup(request):
             #password1 = make_password(password, salt=None, hasher='default')
             user_type1 = 'admin'
             
-
+            ua = UserAssociation()
             uc = UserCollection()
-            uc.org_name = org_name1
+            ua.event_id='noid'
+            ua.event_name= 'noname'
             uc.org_id = org_id1
             uc.email = email1
             uc.phone = phone1
             uc.user_type = user_type1
-            uc.user_acctd = [{event_id:'noid', event_name: 'noname'}]
+            uc.user_acctd = [ua]
             uc.save()
 
-            username = org_id1 + email1
+            username = org_id1 +':'+ email1
 
             user = User.objects.create_user(username, email1, password1)
             user.save()
@@ -50,7 +51,7 @@ def loggedin(request):
       email1 = request.GET.get('uname')
       passw1 = request.GET.get('psw')
 
-      un = str(org_id1) + str(email1)
+      un = str(org_id1) +'+'+ str(email1)
 
       user1 = authenticate(username= un , password=passw1)
       

@@ -14,6 +14,7 @@ class UserAssociation(models.Model):
 
       class Meta:
             abstract = True
+            
       def __str__(self):
            
             return self.event_id
@@ -30,6 +31,9 @@ class UserCollection(models.Model):
       org_id = models.CharField(max_length=50, blank=True)
       email = models.EmailField(max_length=50, blank=True, unique= True)
       phone = models.CharField(max_length=12, blank=True)
+      name = models.CharField(max_length= 30)
+      designation = models.CharField(max_length= 30)
+      gen_id = models.CharField(max_length= 15)
       user_type = models.CharField(max_length=200)
       user_acctd = models.ArrayModelField(model_container= UserAssociation, model_form_class=UserAssociationForm,)
 
