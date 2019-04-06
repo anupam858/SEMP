@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 DBNAME = 'base-user'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = ''
 # Application definition
 
 INSTALLED_APPS = [
