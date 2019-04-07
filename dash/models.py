@@ -1,5 +1,6 @@
 from djongo import models
-from datetime import datetime
+from datetime import datetime, date
+from django import forms
 # Create your models here.
 
 class OrganiList(models.Model):
@@ -20,14 +21,14 @@ class SlotF(models.Model):
 
 class Voccupy(models.Model):
 
-      eid = models.CharField()
-      edate = models.DateField()
+      eid = models.CharField(max_length=10)
+      edate = models.DateField(default= date.today)
       etime_s = models.TimeField()
       etime_e = models.TimeField()
 
       class Meta:
             abstract = True
-            
+
       
 class task_list(models.Model):
 
@@ -37,11 +38,10 @@ class task_list(models.Model):
       class Meta:
             abstract = True
 
-
-
             
 class Events(models.Model):
-
+      
+      org_id = models.CharField(max_length= 20)
       event_name = models.CharField(max_length= 50, blank= False)
       e_date = models.DateField(blank= False)
       Venue = models.CharField(max_length= 20)
@@ -56,21 +56,26 @@ class Events(models.Model):
       enotes = models.TextField()
       active_stat = models.BooleanField()
 
-
+      objects = models.DjongoManager()
+      
       def __str__(self):
 
             return self.event_name
 
 
+
+
 class Venue(models.Model):
 
+      
+      org_id = models.CharField(max_length= 20)
       v_name = models.CharField(max_length= 20)
       room_no = models.CharField(max_length= 5,unique= True)
       floor = models.CharField(max_length= 10)
       capacity = models.IntegerField()
-      occupancy = models.ArrayModelField(model_container = Voccupy)
+      occupancy = models.ArrayModelField(model_container = Voccupy,)
 
-
+      objects = models.DjongoManager()
 
       def __str__(self):
 
@@ -80,11 +85,12 @@ class Venue(models.Model):
 
 class Tasks(models.Model):
 
-      e_id = models.CharField(max_length=20,)
+      e_id = models.CharField(max_length= 20)
       User_id = models.CharField(max_length= 50)
       Rp_id = models.CharField(max_length= 50)
       tasks = models.ArrayModelField(model_container= task_list)
 
+      objects = models.DjongoManager()
 
       def __str__(self):
 
@@ -99,6 +105,8 @@ class UserRequest(models.Model):
       phone = models.CharField(max_length=12, blank=True)
       designation = models.CharField(max_length= 30)
       gen_id = models.CharField(max_length= 15)
+
+      objects = models.DjongoManager()
 
       def __str__(self):
 

@@ -43,15 +43,20 @@
 	</nav>
 
 <!-- The Floating action button part -->	
-	<div class="fixed-action-btn">
-	  <a class="btn-floating btn-large">
-		<i class="fa fa-plus" aria-hidden="true"></i>
-	  </a>
+	<div class="fixed-action-btn click-on-toggle">
+			<a class="btn-floating btn-large">
+				<i class="fas fa-plus"></i>
+			</a>
+			<ul>
+				<li><a class="btn-floating red" id= "red-btn"><i class="material-icons fas fa-building"></i></a></li>
+				<li><a class="btn-floating yellow darken-1" id="yellow-btn"><i class="material-icons fas fa-user-plus"></i></a></li>
+				
+			</ul>
 	</div>
+
 	
 <!-- The side nav bar -->
 	<nav class="navbar d-flex fixed-bottom" id="sidenavbar">
-	
 		<h2> hello, </h2>
 		{% for sd in Selfu%}
 		<h4>{{sd.org_name}} </h2>
@@ -65,7 +70,10 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#userslist" role = "tab" data-toggle="tab" >Accounts</a>
-				</li>		
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="#venueslist" role="tab" data-toggle="tab">Venues</a>
+				</li>
 				<li class="nav-item">
 					<a class="nav-link " href="#requestlist" role="tab" data-toggle="tab">Request Box</a>
 				</li>
@@ -75,7 +83,8 @@
 	</nav>
 	
 	<div class = "tab-content" id = "mytabuserlist">
-		<div class="tab-pane fade" id="userslist" role="tabpanel">
+	
+		<div class="tab-pane fade show active" id="userslist" role="tabpanel">
 			{%for nusers in Users%}
 			<div class="row" id="cardrow">
 				<div class="col s5 m6">
@@ -84,7 +93,7 @@
 					   <span class="card-title">{{nusers.name}} <span style="float:right; margin-left: 2rem;"> {{nusers.gen_id}} </span> <span style="float:right"> {{nusers.designation}}</span></span>
 					</div>
 					<div class="card-action">
-					  <a href="#"><i class="fas fa-trash right"></i></a>
+					  <a href="#"><i class="fas fa-trash right" style="font-size:2rem"></i></a>
 					</div>
 				  </div>
 				</div>
@@ -106,7 +115,8 @@
 					   <span class="card-title">{{rusers.email}}</span>
 					</div>
 					<div class="card-action">
-					  <a href="#"><i class="fas fa-trash right"></i></a>
+					  <a href="#"><i class="fas fa-trash right" style="font-size:2rem; margin-left:2rem;"></i></a>
+					  <a href="#"><i class="fas fa-check right " style="font-size:2rem; margin-left:2rem;"></i></a>
 					</div>
 				  </div>
 				</div>
@@ -116,11 +126,93 @@
 		</div>
 	</div>
 	
+	<div class = "tab-content" id = "mytabVenuelist">
+		<div class="tab-pane fade" id="venueslist" role="tabpanel">
+			{%for venue in Venue%}
+			<div class="row" id="cardrow">
+				<div class="col s5 m6">
+				  <div class="card blue-grey darken-1">
+					<div class="card-content white-text">
+					   <span class="card-title">{{venue.v_name}} <span style="float:right; margin-left: 2rem;"> Floor: {{venue.floor}} </span> <span style="float:right">Room No.: {{venue.room_no}}</span></span>
+					   <span class="card-title">Capacity: {{venue.capacity}}</span>
+					</div>
+					<div class="card-action">
+					  <a href="#"><i class="fas fa-trash right" style="font-size:2rem; margin-left:2rem;"></i></a>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			{% endfor %}
+
+		</div>
+	</div>
+	
+		<div  id="venue" class="needs-validation modal">
+			<div class= "mod">
+				<h3 style="margin-left:1rem;">Add Venue</h3>
+				<form class = "venue_form animate" action="{% url 'venue' %}" method="POST">
+					
+					<div class="form-group">
+					{% csrf_token %}
+					<label for="v_name" class="textcolor">Venue Name</label>
+					<input type="text" class="form-control" name="v_name" required>
+					</div>
+					<div class="form-group">
+					<label for="v_capacity" class="textcolor">Capacity</label>
+					<input type="number" class="form-control" name="v_capacity" required>
+					</div>
+					<div class="form-group">
+					<label for="v_floor" class="textcolor">Floor</label>
+					<input type="number" class="form-control"  name="v_floor" required>
+					</div>
+					<div class="form-group">
+					<label for="v_room" class="textcolor">Room Number</label>
+					<input type="text" class="form-control" name="v_room" required>
+					</div>
+					
+					<button type="submit" class="btn btn-primary" style="float:right;" value="submit">Submit</button>
+				</form>
+			</div>
+	</div>
+	
+	<div  id="newuser" class="needs-validation modal">
+	
+			<div class = "mod">
+				<h3 style="margin-left:1rem;">Add User</h3>
+				<form class="user_form animate" action="" method= "POST">
+					<div class="form-group">
+					{% csrf_token %}
+					<label for="u_name" class="textcolor">Name</label>
+					<input type="text" class="form-control" name="u_name" placeholder="Enter user name" required>
+					</div>
+					<div class="form-group">
+					<label for="u_mail" class="textcolor">Email</label>
+					<input type="email" class="form-control" name="u_mail" placeholder="Enter email" required>
+					</div>
+					<div class="form-group">
+					<label for="u_phone" class="textcolor">Phone Number</label>
+					<input type="number" class="form-control"  name="u_phone" placeholder="Enter phone number" required>
+					</div>
+					<div class="form-group">
+					<label for="u_desg" class="textcolor">Designation</label>
+					<input type="text" class="form-control" name="u_desg" placeholder="Enter designation" required>
+					</div>
+					<div class="form-group">
+					<label for="u_id" class="textcolor">ID</label>
+					<input type="text" class="form-control" name="u_id" placeholder="Enter valid ID" required>
+					</div>
+					
+					<button type="submit" class="btn btn-primary" style= "float: right;" value="Submit">Submit</button>
+				</form>
+			</div>
+	</div>
+	
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="{%static 'js/dashboard.js'%}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="{% static 'js/dash1.js' %}"></script>
   </body>
   
   </html>

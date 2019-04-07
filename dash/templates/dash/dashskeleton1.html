@@ -171,11 +171,11 @@ hr{
 	  
     <hr>
       <label for="title"><b>Title</b></label> <br/>
-      <input class= "inp3" type="text" placeholder="Title goes here" name="title"  required> 
+      <input class= "inp3" type="text" placeholder="Event Name" name="title"  required> 
       <br/>
       <label for="evedate"><b>Event Date</b> <span id= "distance">  <b>Time</b> </label><br/>
-         <input class = "inp3 pickdate gap" type = "text" placeholder = "DD/MM/YYYY" name= "evedate" required> 
-			<input class = "inp3 gap point" type = "time"  value="13:30" name= "time1" required >
+        <span> <input class = "inp3 pickdate gap" type = "text" placeholder = "YYYY/MM/DD" name= "evedate" required> 
+			<span> <input class = "inp3 gap point" type = "time"  value="13:30" name= "time1" required > </span></span>
 		<br/>
 			<label for="venue"><b>Venue</b></label><br/>
             <select class = "inp3" name="places">
@@ -188,12 +188,16 @@ hr{
 			<br/>
 			
 		<div id = "eve-date">
-	
-         <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "DD/MM/YYYY" name= "evedate2" >  
+		
+		<label for="venue"><b>Venue</b></label><br/>
+            <select class = "inp3" name="altplaces">
+				<option  value="outside">External Places</option>
+			</select>
+         <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "YYYY/MM/DD" name= "evedate2" >  
 				<input class = "inp3 enable gap point" type = "time"  value="14:30" name= "time2">
 				<br/>
            
-            <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "DD/MM/YYYY" name= "evedate3"> 
+            <input class = "inp3 pickdate enable gap" type = "text"  placeholder = "YYYY/MM/DD" name= "evedate3"> 
 					
 				<input class = "inp3 enable gap point" type = "time"  value="15:30" name= "time3"> 
 			<br/>
@@ -233,7 +237,7 @@ window.onclick = function(event) {
 	  
 	  <script>
          $(function() {
-            $( ".pickdate" ).datepicker({minDate: 0});
+            $( ".pickdate" ).datepicker({minDate: 0, dateFormat: 'yy-mm-dd'});
          });
 		 
 		 $(document).ready(function(){

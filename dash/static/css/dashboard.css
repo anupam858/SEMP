@@ -23,7 +23,6 @@ html, body{
 #topnavbar{
 	
 	background-color: #0086ad;
-	
 }
 	
 #dropdownMenuButton{
@@ -64,4 +63,31 @@ html, body{
 	color:black;
 	font-size:1rem;
 	font-weight:normal;
+}
+
+.modal {
+	padding: 1rem;
+	top:-4rem;
+	position: absolute;
+	background-color: #00c2c7;
+	border-radius: 0.5rem;
+	color: #ffffff
+}
+.mod{
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	
+}
+
+/* Modal Content/Box */
+.user_form, .venue_form {
+  background-color: #fefefe;
+  margin: 1rem; /* 5% from the top, 15% from the bottom and centered */
+  border: .1rem solid #888;
+  border-radius: 0.5rem;
+   /* Could be more or less, depending on screen size */
+  position: center;
+  padding:1rem;
+	width: 90%;
+	height: 100%;
 }

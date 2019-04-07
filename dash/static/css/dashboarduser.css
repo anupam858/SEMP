@@ -86,8 +86,6 @@ html, body{
 
 			margin:auto;
 
-			
-
 			position:relative;
 
 			top:3rem;
@@ -120,4 +118,165 @@ html, body{
 
 	font-weight:normal;
 
+}
+
+/* modal */
+.inp3{
+  width: 90% !important;
+  padding: 0.8rem !important;
+  margin: .5rem 0 1.5rem 0 !important;
+  display: inline-block !important;
+  border: none !important;
+  border-radius: 0.7rem!important;
+  background: #f1f1f1 !important;
+  box-sizing: border-box !important;
+}
+
+.ui-datepicker {
+   background: #333 !important;
+   border: 1px solid #555 !important;
+   color: #f1f1f1 !important;
+}
+
+.point{
+	width:30% !important;
+}
+
+/* Add a background color when the inputs get focus */
+.inp3:focus{
+  background-color: #ddd;
+  border-color: #6495ed;
+}
+
+/* Set a style for all buttons */
+.but3 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: .8rem 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 1.0rem;
+}
+
+.but3:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+#cancelbtn3 {
+  padding: 0.6rem;
+  background-color: #f44336;
+  margin-left: 0.6rem;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+#cancelbtn3, #create_btn {
+  float: right;
+}
+
+/* Add padding to container elements */
+.container3 {
+  padding: 1rem;
+}
+[type='checkbox']:not(:checked), [type='checkbox']:checked{
+	
+	opacity: 1 !important;
+	pointer-events: auto !important;
+}
+#distance{
+	position: absolute;
+	right: 3.9rem;
+}
+#eve-date{
+	border-style: groove;
+	border-width: 0.05rem;
+	border-radius: 1.0rem;
+	padding: 0.8rem;
+}
+
+#message{
+	 position: relative;
+	 padding: 0.8rem;
+	 border-radius: 0.7rem;
+	 width: 80% !important;
+	 border-color: #6495ed;
+	}
+
+/* The Modal (background) */
+.modal3 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 0.8rem;
+}
+
+/* Modal Content/Box */
+.modal-content3 {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 0.1rem solid #888;
+  border-radius: 0.5rem;
+  width: 45%; /* Could be more or less, depending on screen size */
+  position: relative;
+  overflow: auto;
+  box-sizing: border-box;
+  
+}
+
+.container3 h2, p{
+	text-align: center;
+	position: relative;
+}
+ 
+/* The Close Button (x) */
+.close3 {
+  position: absolute;
+  right: 1rem;
+  top: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.close3:hover,
+.close3:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+.enable:focus{
+	opacity:1;
+	}
+
+hr{
+  margin-bottom: 1.0rem;
+  margin-top: 1.0rem;
+  border: 0.1rem solid #f1f1f1;
+}
+/* Clear floats */
+.clearfix3::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
 }

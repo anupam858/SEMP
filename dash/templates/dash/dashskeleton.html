@@ -88,7 +88,7 @@
 
 <!-- The Floating action button part -->	
 
-	<div class="fixed-action-btn">
+	<div class="fixed-action-btn" id="addevent">
 
 	  <a class="btn-floating btn-large">
 
@@ -198,6 +198,71 @@
 		</div>
 
 	</div>
+	<!-- create event form-->
+	
+	<div id="id03" class="modal3 animate">
+  
+		<form class="modal-content3" action="/action_page.php" method= "POST">
+		<span onclick="document.getElementById('id03').style.display='none'" class="close3" title="Close Modal">&times;</span>
+	
+		<div class="container3">
+		<h2> Create an Event </h2>
+	  
+    <hr>
+      <label for="title"><b>Title</b></label> <br/>
+      <input class= "inp3" type="text" placeholder="Event Name" name="title"  required> 
+      <br/>
+      <label for="evedate"><b>Event Date</b> <span id= "distance"><b> Time </b></span></label> 
+		<div>
+         <input class = "inp3 pickdate gap point" type = "text" placeholder = "YYYY/MM/DD" name= "evedate" required> 
+			 <span style="margin-left: 12rem;"><input class = "inp3 gap point" type = "time"  value="13:30" name= "time1" required ></span>
+		</div>
+		<br/>
+			<label for="venue"><b>Venue</b></label><br/>
+			
+            <select class = "inp3" name="places">
+				<option  value="outside">External Venue</option>
+			</select>
+			
+		
+		<br>
+		
+         <label style="margin-bottom: 2rem;"><input type="checkbox" id= "availability" name="altdates" required></label><span style="margin-bottom: 0.8rem;">In case of no availability, choose alternate dates </span>
+	
+		<br/>
+			
+		<div id = "eve-date">
+		
+		<label for="venue"><b>Venue</b></label><br/>
+            <select class = "inp3 enable" id="venuechoice" name="altplaces">
+				<option  value="outside">External Venue</option>
+			</select>
+         <input class = "inp3 pickdate enable gap point" type = "text"  placeholder = "YYYY/MM/DD" name= "evedate2" >  
+				<input class = "inp3 enable gap point" type = "time"  value="14:30" name= "time2" style="margin-left: 12rem;">
+				<br/>
+           
+            <input class = "inp3 pickdate enable gap point" type = "text"  placeholder = "YYYY/MM/DD" name= "evedate3" style="margin-left: 12rem;"> 
+					
+				<input class = "inp3 enable gap point" type = "time"  value="15:30" name= "time3"> 
+			<br/>
+		</div>
+		<br/>
+			<label for="organizer-name"><b>Organizer</b></label>
+			
+			<br/>
+			
+            <select class = "inp3 point" name="organizers" multiple size = "1">
+				<option class = "sel-org" value="selected-org">Dummy</option>	
+			</select>			
+			<textarea id= "message"  name="extra-notes" rows="20" cols="10" placeholder = "Extra Notes"></textarea> 
+			
+			  <div class="clearfix3">
+				<button type="button" onclick="document.getElementById('id03').style.display='none'" class= "but3" id="cancelbtn3">Cancel</button>
+				<button type="submit" id="create_btn" class= "but3">Create</button>
+			  </div>
+		</div>
+	</form>
+	</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
@@ -206,8 +271,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-	<script src="{%static 'js/dashboard.js'%}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="{%static 'js/dash1.js'%}"></script>
 
   </body>
 

@@ -1,14 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from home.models import UserCollection
-from .models import UserRequest
+from datetime import time
+from .models import *
 from django.contrib.auth.models import Group, User
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-@login_required(redirect_field_name='dashboard')
+@login_required(redirect_field_name='log')
 def dash(request):
       print('User Ran')
       usern = request.user.get_username()
@@ -18,7 +19,7 @@ def dash(request):
       return(render(request, 'dash\dashskeleton.html', {'Selfu':selfdata}))
 
 
-@login_required(redirect_field_name='dashboard')
+@login_required(redirect_field_name='log')
 def requser(request):
 
       if request.method=='POST':
@@ -37,7 +38,7 @@ def requser(request):
       return(render(request,'dash\dashskeleton.html',{}))
             
       
-@login_required(redirect_field_name='admindashboard')
+@login_required(redirect_field_name='log')
 def dashadmin(request):
 
       print('Admin Ran')
@@ -46,6 +47,41 @@ def dashadmin(request):
       selfdata = UserCollection.objects.filter(org_id=usern, user_type= 'admin')
       Users = UserCollection.objects.filter(org_id=usern, user_type= 'user')
       RUsers = UserRequest.objects.filter(org_id=usern)
+      Ven = Venue.objects.filter(org_id= usern)
       print(Users)
       print(RUsers)
-      return(render(request, 'dash\dashadminskeleton.html', {'Users':Users, 'Selfu':selfdata, 'RUsers':RUsers}))
+      print(Ven)
+      return(render(request, 'dash\dashadminskeleton.html', {'Users':Users, 'Selfu':selfdata, 'RUsers':RUsers, 'Venue':Ven}))
+
+@login_required(redirect_field_name='log')
+def venueins(request):
+
+      print('Inserting Venue')
+
+      if request.method=='POST':
+            
+            v_occ = Voccupy()
+            venue = Venue()
+            v_occ.eid = 'noid'
+            #v_occ.edate = '1000-01-01'
+            v_occ.etime_s = time(00,00,00)
+            v_occ.etime_e = time(00,00,00)
+            venue.org_id = request.user.get_username().split('+')[0]
+            venue.v_name= request.POST.get('v_name')
+            venue.capacity= request.POST.get('v_capacity')
+            venue.floor = request.POST.get('v_floor')
+            venue.room_no = request.POST.get('v_room')
+            venue.occupancy = [v_occ]
+
+            venue.save()
+            
+      usern = request.user.get_username()
+      usern = usern.split('+')[0]
+      selfdata = UserCollection.objects.filter(org_id=usern, user_type= 'admin')
+      Users = UserCollection.objects.filter(org_id=usern, user_type= 'user')
+      RUsers = UserRequest.objects.filter(org_id=usern)
+      Ven = Venue.objects.filter(org_id= usern)
+      
+      #return(render(request, 'dash\dashadminskeleton.html', {'Users':Users, 'Selfu':selfdata, 'RUsers':RUsers, 'Venue':Ven}))
+      return(redirect('dashboardadmin'))
+      
