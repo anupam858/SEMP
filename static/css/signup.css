@@ -1,0 +1,116 @@
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+
+.inp2{
+  width: 100%;
+  padding: 0.8rem;
+  margin: .5rem 0 1.5rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.7rem;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+.inp2:focus{
+  background-color: #ddd;
+  border-color: #6495ed;
+}
+
+/* Set a style for all buttons */
+.but2 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: .8rem 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 1.0rem;
+}
+
+.but2:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+#cancelbtn2 {
+  padding: 0.6rem;
+  background-color: #f44336;
+  margin-left: 0.6rem;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+#cancelbtn2, #signupbtn {
+  float: right;
+}
+
+/* Add padding to container elements */
+.container2 {
+  padding: 1.6rem;
+}
+
+/* The Modal (background) */
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 5.0rem;
+}
+
+/*form head */
+
+
+/* Modal Content/Box */
+.modal-content2 {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 0.1rem solid #888;
+  border-radius: 1.0rem;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.container2 h1, p{
+	text-align: center;
+	position: relative;
+	top: 0rem;
+}
+ 
+/* The Close Button (x) */
+.close2 {
+  position: relative;
+  float: right;
+  right: 0.5rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+hr{
+  margin-bottom: 2.0rem;
+  margin-top:0rem;
+  border: 0.1rem solid #f1f1f1;
+}
+/* Clear floats */
+.clearfix2::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+</style>

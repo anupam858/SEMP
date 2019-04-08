@@ -1,0 +1,25 @@
+{% load static %}
+body{
+			width: 100%;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.jumbotron{
+			height:100vh;
+		}
+
+	
+		.navbar-nav{
+			position:relative;
+		}
+		#btn2{
+			position:relative;
+			margin-left: 4rem;
+			
+		}
+		.btn{
+			width:10rem;
+		}
+		#btn1{
+			position:relative;
+		}
+		
