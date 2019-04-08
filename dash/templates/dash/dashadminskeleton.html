@@ -179,7 +179,7 @@
 	
 			<div class = "mod">
 				<h3 style="margin-left:1rem;">Add User</h3>
-				<form class="user_form animate" action="" method= "POST">
+				<form class="user_form animate" action="{% url 'adduser' %}" method= "POST">
 					<div class="form-group">
 					{% csrf_token %}
 					<label for="u_name" class="textcolor">Name</label>
@@ -195,7 +195,7 @@
 					</div>
 					<div class="form-group">
 					<label for="u_desg" class="textcolor">Designation</label>
-					<input type="text" class="form-control" name="u_desg" placeholder="Enter designation" required>
+					<input type="text" class="form-control" name="u_desig" placeholder="Enter designation" required>
 					</div>
 					<div class="form-group">
 					<label for="u_id" class="textcolor">ID</label>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
-from home.models import UserCollection
+from home.models import UserCollection, UserAssociation
 from datetime import time
 from .models import *
 from django.contrib.auth.models import Group, User
@@ -85,3 +85,46 @@ def venueins(request):
       #return(render(request, 'dash\dashadminskeleton.html', {'Users':Users, 'Selfu':selfdata, 'RUsers':RUsers, 'Venue':Ven}))
       return(redirect('dashboardadmin'))
       
+@login_required(redirect_field_name='log')
+def adduser(request):
+
+      if request.method=='POST':
+            
+            nu = UserCollection()
+            ua = UserAssociation()
+            ua.event_id='noid'
+            ua.event_name= 'noname'
+            usern = request.user.get_username()
+            orgid= usern.split('+')[0]
+            username1=request.POST.get('u_name')
+            useremail=request.POST.get('u_mail')
+            userphone=request.POST.get('u_phone')
+            userdesignation=request.POST.get('u_desig')
+            usergen_id=request.POST.get('u_id')
+            for orgname in UserCollection.objects.filter(org_id= usern, user_type= 'admin'):
+                  nu.org_name = orgname
+                  
+            Users = UserCollection.objects.filter(org_id=usern, user_type= 'user')
+            
+            
+            
+            
+            nu.org_id = orgid
+            nu.name=username1
+            nu.email = useremail
+            nu.phone = userphone
+            nu.gen_id = usergen_id
+            nu.designation = userdesignation
+            nu.user_type = 'user'
+            nu.user_acctd = [ua]
+            nu.save()
+            
+
+            username = orgid +'+'+ useremail
+
+            user = User.objects.create_user(username, useremail, 'password')
+            user.save()
+            
+      return(redirect('dashboardadmin'))
+            
+            

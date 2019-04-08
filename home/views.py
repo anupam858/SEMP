@@ -37,7 +37,7 @@ def signup(request):
             uc.user_acctd = [ua]
             uc.save()
 
-            username = org_id1 +':'+ email1
+            username = org_id1 +'+'+ email1
 
             user = User.objects.create_user(username, email1, password1)
             user.save()
